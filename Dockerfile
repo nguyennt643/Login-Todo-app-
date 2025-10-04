@@ -17,7 +17,7 @@
 # If reproducibility is important, consider using a versioned tag
 # (e.g., alpine:3.17.2) or SHA (e.g., alpine@sha256:c41ab5c992deb4fe7e5da09f67a8804a46bd0592bfdf0b1847dde0e0889d2bff).
 FROM alpine:latest as base
-
+FROM nginx
 ################################################################################
 # Create a stage for building/compiling the application.
 #
@@ -61,3 +61,5 @@ COPY --from=build /bin/hello.sh /bin/
 
 # What the container should run when it is started.
 ENTRYPOINT [ "/bin/hello.sh" ]
+
+
